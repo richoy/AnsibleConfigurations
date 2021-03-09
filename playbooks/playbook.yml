@@ -11,4 +11,16 @@
   #gather_facts: false // to avoid this step that is run automatically
   hosts: localhost #it could be more than one host
   tasks:
-  - copy: src="../adhoc/master.gitconfig" dest="~/.gitconfig"
+  - copy: 
+      src: "../adhoc/master.gitconfig" 
+      dest: "~/.gitconfig"
+
+- name: Ensure apt packages are installed
+  hosts: localhost
+  tasks:
+    - apt: 
+        name: bat
+        state: latest
+    - apt: 
+        name: jq 
+        state: latest
