@@ -1,0 +1,14 @@
+---
+# Convention has the three lines on start of a yml file.
+# ansible -m copy -a "src=../adhoc/master.gitconfig dest=~/.gitconfig" localhost
+# ansible -m homebrew -a "name=bat state=latest" localhost
+# ansible -m homebrew -a "name=jq state=latest" localhost
+
+### INDENTATION IS IMPORTANT IN .YML FILES
+
+# plays
+- name: Ensure ~./gitconfig is configured propperly.
+  #gather_facts: false // to avoid this step that is run automatically
+  hosts: localhost #it could be more than one host
+  tasks:
+  - copy: src="../adhoc/master.gitconfig" dest="~/.gitconfig"
